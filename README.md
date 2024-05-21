@@ -1,6 +1,6 @@
 # Embedded Linux System for Vexpress_ca9x4
-
-This repository contains the necessary components to build an embedded Linux system from scratch, including libraries, tools, and custom configurations for Vexpress_ca9x4.
+ * OS used Ubuntu 22.04.4 LTS x86_64
+ * This repository contains the necessary components to build an embedded Linux system from scratch, including libraries, tools, and custom configurations for Vexpress_ca9x4.
 
 ## Components
 
