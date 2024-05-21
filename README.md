@@ -8,9 +8,9 @@ This repository contains the necessary components to build an embedded Linux sys
 - [**Emulated SD Card**](#emulated-sd-card): make a virtual SD card to load from 
 - [**U-Boot**](#u-boot): A boot loader used in embedded systems.
 - [**Kernel**](#kernel): The Linux kernel for embedded systems.
-- [**U-boot config to read the kernel dtb and rootfs**](#u-boot-config-to-read-the-kernel-dtb-and-rootfs)
+- [**U-Boot config to read the kernel dtb and rootfs**](#u-boot-config-to-read-the-kernel-dtb-and-rootfs)
 - [**BusyBox**](#busybox): A collection of Unix utilities in a single executable for embedded systems.
-- [**Rootfs**](#rootfs): build the foldr and set init process which is the first process started during bootup, responsible for initializing the system.
+- [**Rootfs**](#rootfs): build the folder and set init process which is the first process started during bootup, responsible for initializing the system.
 
 
 ## Usage
@@ -69,7 +69,7 @@ make #To generate the Makefile for croostool-ng
 
 
 
-We will choose `arm-cortexa9_neon-linux-gnueabihf` as example:
+We will choose `arm-cortexa9_neon-linux-gnueabihf` :
 
 ```
 #To configure the microcontroller used
@@ -107,8 +107,6 @@ Wait till it finish and go check your tool chain
 
 ```
 cd ~/x-tools
-#If you have rootfs and wants to copy sysroot to it as it will be needed by your compiled apps if it is dynamicaly built
-cp ~/x-tools/arm-cortexa9_neon-linux-musleabihf/arm-cortexa9_neon-linux-musleabihf/sysroot/* <path>/rootfs/
 ```
 
 
@@ -257,7 +255,7 @@ make menuconfig
 # number of core to use to run
 make -j 8
 ```
-## Test U-Boot
+## Test U-Boot (can be skipped)
 
 Check the **u-boot** and the **sd card** are working
 
@@ -271,7 +269,7 @@ qemu-system-arm -M vexpress-a9 -m 128M -nographic \
 -sd sd.img
 ```
 
-## Load File to RAM
+### Load File to RAM test inside the u-boot cmdline
 
 First we need to know the ram address by running the following commend
 
@@ -444,7 +442,7 @@ sudo mkdir -pv rootfs/{bin,sbin,etc,proc,sys,dev,usr/{bin,sbin}}
 # copy the binary from under the busybox to this folder 
 sudo cp -av <Your_Path>busybox/_install/* <Your_Path>SD/rootfs/
 
-cd rootfs # every thing under it now
+cd rootfs # every thing we do under it now  <--------------
 ```
 
 make the init script 
@@ -478,7 +476,7 @@ echo "you are in user space rootfs has been uploaded "
 ```
 ---
 ---
-## U-boot Commands to add knowlage
+## U-boot Commands to add knowlage (can be skipped)
 
 ### Write Script in U-boot
 
