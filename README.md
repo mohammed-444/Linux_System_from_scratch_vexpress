@@ -474,6 +474,12 @@ mdev -s  # -s "Scan /sys and populate /dev"
 echo "you are in user space rootfs has been uploaded "
 
 ```
+# finally run this qemu to see the project
+```bash
+qemu-system-arm -M vexpress-a9 -m 128M -nographic \
+-kernel u-boot/u-boot \
+-sd sd.img
+```
 ---
 ---
 ## U-boot Commands to add knowlage (can be skipped)
